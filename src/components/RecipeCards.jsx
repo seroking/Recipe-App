@@ -6,7 +6,7 @@ const RecipeCard = ({ recipe, recipeDetails }) => {
   const navigate = useNavigate();
 
   const handleDetailsClick = () => {
-    navigate(`/information/${recipe.id}`); e
+    navigate(`/information/${recipe.id}`); 
   };
 
   return (
@@ -57,7 +57,7 @@ export default function RecipeCards({ recipes }) {
         <RecipeCard
           key={recipe.id}
           recipe={recipe}
-          recipeDetails={recipeDetails[index]}
+          recipeDetails={recipeDetails[index]} 
         />
       ))}
     </div>
