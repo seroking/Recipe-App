@@ -6,9 +6,9 @@ import { getRandomRecipes } from "../api/RecipeApi";
 
 export default function Home() {
   const [suggestions, setSuggestions] = useState([]);
-  const [searchResults, setSearchResults] = useState([]); 
+  const [searchResults, setSearchResults] = useState([]);
 
-  {useEffect(() => {
+  useEffect(() => {
     const fetchSuggestions = async () => {
       try {
         const recipes = await getRandomRecipes(9);
@@ -19,15 +19,17 @@ export default function Home() {
     };
 
     fetchSuggestions();
-  }, []);}
+  }, []);
+
+  const displayedRecipes = searchResults.length ? searchResults : suggestions;
 
   return (
     <div>
-      <Navbar setRecipe={setSearchResults} /> 
-      <Hero setRecipe={setSearchResults} /> 
+      <Navbar setRecipe={setSearchResults} />
+      <Hero setRecipe={setSearchResults} />
       <div className="p-6">
         <h2 className="text-2xl font-bold mb-4">Suggestions</h2>
-        {<RecipeCards recipes={searchResults.length ? searchResults : suggestions} />}
+        <RecipeCards recipes={displayedRecipes} />
       </div>
     </div>
   );

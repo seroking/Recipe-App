@@ -1,8 +1,7 @@
 import SearchBar from "./SearchBar";
+import foodHero from "../assets/foodHero.jpg";
 
 export default function Hero({ setRecipe }) {
-  const foodHero = require("../assets/foodHero.jpg");
-
   return (
     <section className="bg-gray-100 py-16">
       <div className="container mx-auto flex flex-col lg:flex-row items-center">
@@ -13,7 +12,7 @@ export default function Hero({ setRecipe }) {
           <p className="text-base md:text-lg text-gray-600 mb-6">
             Explore a wide variety of delicious recipes tailored to suit every taste. Cooking has never been this fun!
           </p>
-          <SearchBar setRecipe={setRecipe} /> {/* Pass setRecipe */}
+          <SearchBar setRecipe={setRecipe} />
         </div>
         <div className="lg:w-1/2 mt-8 lg:mt-0 px-6">
           <img

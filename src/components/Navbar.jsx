@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 export default function Navbar({ setRecipe }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   return (
     <nav className="bg-white px-4 py-3 shadow-md border-b border-gray-300">
@@ -16,11 +16,7 @@ export default function Navbar({ setRecipe }) {
         >
           ☰
         </button>
-        <ul
-          className={`lg:flex space-x-4 ${
-            menuOpen ? "block" : "hidden"
-          } lg:block`}
-        >
+        <ul className={`lg:flex space-x-4 ${menuOpen ? "block" : "hidden"} lg:block`}>
           <li>
             <a href="#home" className="text-black hover:text-gray-400">Home</a>
           </li>
@@ -32,7 +28,7 @@ export default function Navbar({ setRecipe }) {
           </li>
         </ul>
         <div className="w-full mt-4 lg:mt-0 lg:w-auto">
-          <SearchBar setRecipe={setRecipe} /> 
+          <SearchBar setRecipe={setRecipe} />
         </div>
       </div>
     </nav>
